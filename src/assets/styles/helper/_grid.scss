@@ -1,0 +1,35 @@
+@import "breakpoints";
+
+$gutter: 16px;
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      width: calc(percentage(#{$i}/12) - #{$gutter/2});
+    }
+
+    .col-#{$i}-xs {
+      @include mobile() {
+        width: calc(#{percentage($i/12)} - #{$gutter/2});
+      }
+    }
+
+    .col-#{$i}-sm {
+      @include tablet() {
+        width: calc(#{percentage($i/12)} - #{$gutter/2});
+      }
+    }
+
+    .col-#{$i}-md {
+      @include desktop() {
+        width: calc(#{percentage($i/12)} - #{$gutter/2});
+      }
+    }
+  }
+}
+
+
