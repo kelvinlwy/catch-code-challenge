@@ -1,0 +1,66 @@
+@import "../../assets/styles/styles.modules";
+
+.product {
+  $product: &;
+
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 8px;
+  border: 2px solid $gray-color;
+
+  &__container {
+    display: inline-flex;
+  }
+
+  &__image-container {
+    position: relative;
+
+    #{$product}__image {
+      width: 100%;
+    }
+
+    #{$product}__stockout {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      background: $gray-color-dark;
+      color: $text-color-invert;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      padding: 4px 16px;
+    }
+  }
+
+  &__title {
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $text-color-light;
+  }
+
+  &__price-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    #{$product}__retail-price {
+      margin: auto;
+      font-size: 1rem;
+      color: $text-color-light;
+      text-decoration: line-through;
+
+      &:empty:before {
+        content: "\200b"; // unicode zero width space character
+      }
+    }
+
+    #{$product}__sale-price {
+      margin: auto;
+      font-size: 1.75rem;
+      color: $accent-color;
+    }
+  }
+}
