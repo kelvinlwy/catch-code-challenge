@@ -1,7 +1,12 @@
 import React from 'react';
 
+import ProductsContextProvider from './contexts/productsContext';
+import ProductListPage from './page/ProductListPage';
+
 const App = () => (
-  'Stub'
+  <ProductsContextProvider>
+    <ProductListPage />
+  </ProductsContextProvider>
 );
 
 export default App;
